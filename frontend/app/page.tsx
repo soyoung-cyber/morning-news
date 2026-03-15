@@ -94,7 +94,9 @@ function PulseSidebar({ articles }: { articles: Article[] }) {
             {viral.map(a=>(
               <a key={a.id} href={a.url} target="_blank" rel="noopener noreferrer"
                 className="flex items-start gap-3 px-4 py-3 hover:bg-neutral-50 transition-colors group">
-                {a.image_url && <img src={a.image_url} alt="" className="w-10 h-10 rounded-lg object-cover shrink-0 bg-neutral-100"/>}
+                <div className="w-10 h-10 rounded-lg shrink-0 bg-neutral-100 overflow-hidden">
+                  {a.image_url && <img src={a.image_url} alt="" className="w-full h-full object-cover" onError={e=>{(e.target as HTMLImageElement).style.display='none'}}/>}
+                </div>
                 <p className="text-xs text-neutral-700 leading-snug group-hover:text-neutral-900 line-clamp-2">{a.title}</p>
               </a>
             ))}
