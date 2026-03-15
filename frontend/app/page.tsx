@@ -368,8 +368,8 @@ export default function Dashboard() {
           <div className="flex items-center gap-4 text-sm text-neutral-500 shrink-0">
             <span><b className="text-neutral-800 font-semibold">{articles.length}</b> articles</span>
             <div className="flex items-center gap-3 text-xs">
-              {[['Design',designCount,'text-violet-600'],['Tech',itCount,'text-sky-600'],['Startup',startupCount,'text-emerald-600']].map(([l,n,c])=>(
-                n>0 && <span key={l as string}><b className={`font-semibold ${c}`}>{n}</b> {l}</span>
+              {([['Design',designCount,'text-violet-600'],['Tech',itCount,'text-sky-600'],['Startup',startupCount,'text-emerald-600']] as [string,number,string][]).map(([l,n,c])=>(
+                n>0 && <span key={l}><b className={`font-semibold ${c}`}>{n}</b> {l}</span>
               ))}
             </div>
             <span className="text-neutral-400">{today}</span>
